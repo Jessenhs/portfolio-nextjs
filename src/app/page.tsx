@@ -2,10 +2,26 @@ import Image from "next/image";
 import { getProfile, getPinnedRepos, type Repo } from "@/lib/github";
 
 const SKILLS = [
-  { category: "Languages", items: ["TypeScript", "JavaScript", "Python"] },
-  { category: "Frontend", items: ["React", "Next.js", "Tailwind CSS"] },
-  { category: "Backend", items: ["Node.js", "REST", "GraphQL", "Prisma"] },
-  { category: "Infra", items: ["PostgreSQL", "Docker", "AWS", "Vercel", "Git"] },
+  {
+    category: "Programmeertalen",
+    items: ["Python", "C#", "PHP", "JavaScript", "TypeScript", "HTML", "CSS", "SQL"],
+  },
+  {
+    category: "Frameworks & Libraries",
+    items: ["Next.js", "React", "Laravel", "Tailwind CSS", "Prisma ORM", "WPF (.NET)"],
+  },
+  {
+    category: "Ethical Hacking",
+    items: ["Nmap", "Aircrack-ng", "Kali Linux", "Netwerk recon", "Malware-analyse"],
+  },
+  {
+    category: "Databases & DevOps",
+    items: ["PostgreSQL", "SQLite", "Git", "Docker", "npm"],
+  },
+  {
+    category: "Linux & OS",
+    items: ["Kali Linux", "Ubuntu", "WSL", "Bash scripting", "Windows"],
+  },
 ];
 
 const LANG_COLORS: Record<string, string> = {
@@ -77,10 +93,10 @@ export default async function Home() {
         </div>
       </header>
 
-      <div className="mx-auto grid max-w-5xl grid-cols-1 gap-10 px-6 pt-28 pb-20 md:grid-cols-[240px_1fr]">
+      <div className="mx-auto grid max-w-5xl grid-cols-1 gap-10 px-6 pt-20 pb-20 md:grid-cols-[240px_1fr]">
 
         {/* ── LEFT: Profile ── */}
-        <aside className="space-y-6 md:sticky md:top-24 md:self-start">
+        <aside className="space-y-6 md:sticky md:top-20 md:self-start md:max-h-[calc(100vh-5rem)] md:overflow-y-auto md:pr-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
 
           {/* Avatar card */}
           <div className="overflow-hidden rounded-2xl border border-white/[0.08]">
@@ -202,7 +218,7 @@ export default async function Home() {
           {/* Skills */}
           <section>
             <p className="mb-5 text-xs font-medium uppercase tracking-widest text-[#444]">Skills</p>
-            <div className="grid grid-cols-2 gap-6 sm:grid-cols-4">
+            <div className="grid grid-cols-2 gap-x-8 gap-y-8 sm:grid-cols-3 lg:grid-cols-4">
               {SKILLS.map(({ category, items }) => (
                 <div key={category}>
                   <p className="mb-3 text-xs font-medium text-[#555]">{category}</p>

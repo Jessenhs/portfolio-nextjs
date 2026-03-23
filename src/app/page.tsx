@@ -161,6 +161,7 @@ export default async function Home() {
                 Website
               </a>
             )}
+
             {profile?.location && (
               <div className="flex items-center gap-2.5 text-sm text-[#555]">
                 <svg className="h-3.5 w-3.5 shrink-0" viewBox="0 0 16 16" fill="currentColor">

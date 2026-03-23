@@ -12,7 +12,7 @@ const SKILLS = [
   },
   {
     category: "Ethical Hacking",
-    items: ["Nmap", "Aircrack-ng", "Kali Linux", "Netwerk recon", "Malware-analyse"],
+    items: ["Nmap", "Kali Linux", "Netwerk recon", "Malware-analyse"],
   },
   {
     category: "Databases & DevOps",

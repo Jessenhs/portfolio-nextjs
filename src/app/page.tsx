@@ -2,16 +2,9 @@ import Image from "next/image";
 import { getProfile, getPinnedRepos, type Repo } from "@/lib/github";
 
 const SKILLS = [
-  "Software Development",
-  "Backend Engineering",
-  "Offensive Security",
-  "Malware Analysis",
-  "Reverse Engineering",
-  "Network Recon",
-  "Exploit Development",
-  "Scripting & Automation",
-  "Database Design",
-  "DevOps & Tooling",
+  "Software Development", "Backend Engineering", "Offensive Security",
+  "Malware Analysis", "Reverse Engineering", "Network Recon",
+  "Exploit Development", "Scripting & Automation", "Database Design", "DevOps & Tooling",
 ];
 
 const LANG_COLORS: Record<string, string> = {
@@ -29,7 +22,7 @@ function RepoCard({ repo, index }: { repo: Repo; index: number }) {
       href={repo.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group glass-card glass-card-lift relative flex flex-col justify-between gap-4 overflow-hidden rounded-2xl p-5"
+      className="group glass-card glass-card-lift relative flex flex-col gap-2 overflow-hidden rounded-2xl p-4"
     >
       {/* Subtle shimmer on hover */}
       <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-white/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
@@ -51,18 +44,12 @@ function RepoCard({ repo, index }: { repo: Repo; index: number }) {
         </p>
       </div>
 
-      <div className="flex items-center justify-between">
-        {repo.primaryLanguage ? (
-          <span className="flex items-center gap-1.5 text-xs text-[#8e8e93]">
-            <span className="h-2 w-2 rounded-full" style={{ backgroundColor: langColor }} />
-            {repo.primaryLanguage.name}
-          </span>
-        ) : <span />}
-        <div className="flex items-center gap-3 text-xs text-[#aeaeb2]">
-          {repo.stargazerCount > 0 && <span>★ {repo.stargazerCount}</span>}
-          {repo.forkCount > 0 && <span>⌥ {repo.forkCount}</span>}
-        </div>
-      </div>
+      {repo.primaryLanguage && (
+        <span className="flex items-center gap-1.5 text-xs text-[#8e8e93]">
+          <span className="h-2 w-2 rounded-full" style={{ backgroundColor: langColor }} />
+          {repo.primaryLanguage.name}
+        </span>
+      )}
     </a>
   );
 }
@@ -84,23 +71,7 @@ export default async function Home() {
         <div className="absolute left-1/2 top-1/2 h-[380px] w-[380px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#c4cff0] blur-[70px] opacity-35" />
       </div>
 
-      {/* ── Nav ── */}
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-black/[0.06] glass-nav">
-        <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-6">
-          <span className="text-sm font-semibold tracking-tight text-[#1d1d1f]">
-            {displayName.split(" ")[0]}
-            <span className="text-[#6e6e73]">.</span>
-          </span>
-          <a
-            href="mailto:jessenhs@outlook.com"
-            className="rounded-lg bg-[#1d1d1f] px-4 py-1.5 text-xs font-semibold text-white transition-all duration-200 ease-out hover:bg-black hover:shadow-md active:scale-[0.97]"
-          >
-            Get in touch
-          </a>
-        </div>
-      </header>
-
-      <div className="mx-auto grid max-w-5xl grid-cols-1 gap-10 px-6 pb-24 pt-20 md:grid-cols-[240px_1fr]">
+      <div className="mx-auto grid max-w-5xl grid-cols-1 gap-10 px-6 pb-24 pt-10 md:grid-cols-[240px_1fr]">
 
         {/* ── LEFT: Profile ── */}
         <aside className="space-y-4 md:sticky md:top-20 md:max-h-[calc(100vh-5rem)] md:self-start md:overflow-y-auto md:pr-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
@@ -122,16 +93,11 @@ export default async function Home() {
             <div className="border-t border-black/[0.06] p-4">
               <p className="font-semibold text-[#1d1d1f]">{displayName}</p>
               <p className="mt-0.5 text-xs text-[#aeaeb2]">@{username}</p>
+              <a href="mailto:jessenhs@outlook.com" className="mt-1.5 block text-xs text-[#6e6e73] transition-colors hover:text-[#1d1d1f]">
+                jessenhs@outlook.com
+              </a>
+              <p className="mt-0.5 text-xs text-[#aeaeb2]">Markelo, Netherlands</p>
             </div>
-          </div>
-
-          {/* Availability pill */}
-          <div className="flex items-center gap-2.5 rounded-xl border border-black/[0.06] bg-white/70 px-3 py-2 text-xs text-[#34c759] backdrop-blur-sm">
-            <span className="relative flex h-1.5 w-1.5 shrink-0">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#34c759] opacity-50" />
-              <span className="glow-apple-green relative inline-flex h-1.5 w-1.5 rounded-full bg-[#34c759]" />
-            </span>
-            <span className="text-[#1d1d1f]">Available for work</span>
           </div>
 
           {/* Social links */}
@@ -215,11 +181,10 @@ export default async function Home() {
         </aside>
 
         {/* ── RIGHT ── */}
-        <main className="space-y-16">
+        <main className="space-y-10">
 
           {/* About */}
           <section>
-            <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#aeaeb2]">About</p>
             <h2 className="text-[2rem] font-bold leading-tight tracking-tight text-[#1d1d1f]">
               Hey, I&apos;m {displayName.split(" ")[0]} —<br />
               <span className="text-[#6e6e73] font-semibold">a software engineer who builds applications.</span>
@@ -231,6 +196,38 @@ export default async function Home() {
               <p className="max-w-lg text-sm leading-relaxed text-[#6e6e73]">
                 I care about clean code, good design, and shipping things that work. Currently open to new opportunities.
               </p>
+            </div>
+          </section>
+
+          {/* Focus areas */}
+          <section className="space-y-3">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#aeaeb2]">What I do</p>
+            <div className="glass-card rounded-2xl p-4 space-y-1">
+              <p className="text-sm font-semibold text-[#1d1d1f]">Full-Stack Web Development</p>
+              <p className="text-xs leading-relaxed text-[#6e6e73]">I build web applications using Next.js, React, TypeScript and Tailwind CSS with PostgreSQL and Prisma on the backend.</p>
+              <div className="flex flex-wrap gap-1.5 pt-1">
+                {["Next.js", "React", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL"].map(t => (
+                  <span key={t} className="rounded-md bg-black/[0.05] px-2 py-0.5 text-[11px] text-[#6e6e73]">{t}</span>
+                ))}
+              </div>
+            </div>
+            <div className="glass-card rounded-2xl p-4 space-y-1">
+              <p className="text-sm font-semibold text-[#1d1d1f]">Security Tooling</p>
+              <p className="text-xs leading-relaxed text-[#6e6e73]">I write Python tools like network scanners, process monitors, tokenstealers and VirusTotal-integrated malware scanners to detect and analyze threats.</p>
+              <div className="flex flex-wrap gap-1.5 pt-1">
+                {["Python", "VirusTotal API", "Process Scanning", "Network Monitoring"].map(t => (
+                  <span key={t} className="rounded-md bg-black/[0.05] px-2 py-0.5 text-[11px] text-[#6e6e73]">{t}</span>
+                ))}
+              </div>
+            </div>
+            <div className="glass-card rounded-2xl p-4 space-y-1">
+              <p className="text-sm font-semibold text-[#1d1d1f]">Ethical Hacking</p>
+              <p className="text-xs leading-relaxed text-[#6e6e73]">I practice offensive security and hands-on work with common pentesting tools. I also analyze how attacks from token grabbers work to better understand and defend against them.</p>
+              <div className="flex flex-wrap gap-1.5 pt-1">
+                {["Burp Suite", "Nmap", "Wireshark", "Aircrack-ng", "Kali Linux"].map(t => (
+                  <span key={t} className="rounded-md bg-black/[0.05] px-2 py-0.5 text-[11px] text-[#6e6e73]">{t}</span>
+                ))}
+              </div>
             </div>
           </section>
 
@@ -259,17 +256,14 @@ export default async function Home() {
             )}
           </section>
 
-          {/* Skills — domain tiles */}
+          {/* Skills */}
           <section>
-            <p className="mb-5 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#aeaeb2]">Skills</p>
-            <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3 lg:grid-cols-4">
+            <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#aeaeb2]">Skills</p>
+            <div className="flex flex-wrap gap-2">
               {SKILLS.map((skill) => (
-                <div
-                  key={skill}
-                  className="glass-card glass-card-lift rounded-xl px-4 py-3 text-sm font-medium text-[#1d1d1f]"
-                >
+                <span key={skill} className="glass-card rounded-lg px-2.5 py-1 text-xs font-medium text-[#1d1d1f]">
                   {skill}
-                </div>
+                </span>
               ))}
             </div>
           </section>
@@ -279,11 +273,8 @@ export default async function Home() {
 
       {/* ── Footer ── */}
       <footer className="border-t border-black/[0.06]">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-7">
-          <span className="text-xs text-[#aeaeb2]">© {new Date().getFullYear()} {displayName}</span>
-          <a href="mailto:jessenhs@outlook.com" className="text-xs text-[#aeaeb2] transition-colors hover:text-[#1d1d1f]">
-            jessenhs@outlook.com
-          </a>
+        <div className="mx-auto flex max-w-5xl items-center justify-center px-6 py-7">
+          <span className="text-xs text-[#aeaeb2]">© {new Date().getFullYear()} Jesse</span>
         </div>
       </footer>
 

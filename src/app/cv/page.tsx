@@ -124,6 +124,26 @@ export default function CVPage() {
               </div>
             </div>
 
+            {/* Professional Experience */}
+            <div className="mb-2.5">
+              <div className="my-2 border-b-[1.5px] border-black pb-0.5 text-[13px] font-bold uppercase tracking-wide">
+                PROFESSIONAL EXPERIENCE
+              </div>
+              <div className="mb-0.5 flex items-baseline justify-between">
+                <div>
+                  <div className="text-[11px] font-bold">Intern Software Developer</div>
+                  <div className="text-[11px] font-bold">IACT B.V., Haaksbergen</div>
+
+                </div>
+                <div className="text-[10px] italic">Sept 2025 — Feb 2026</div>
+              </div>
+              <ul className="my-0.5 ml-5 p-0 text-[10px]">
+                <li className="mb-0.5">Designed and developed HMI (Human-Machine Interface) desktop applications in C# using WPF (.NET), enabling operators to monitor and control PLC-driven industrial systems through intuitive real-time dashboards.</li>
+                <li className="mb-0.5">Implemented input/output control logic and live status displays, ensuring accurate communication between the software interface and the underlying hardware.</li>
+                <li className="mb-0.5">Built and maintained a company website using PHP and JavaScript, handling both front-end design and back-end functionality to improve the company's online presence.</li>
+              </ul>
+            </div>
+
             {/* Projects */}
             <div className="mb-2.5">
               <div className="my-2 border-b-[1.5px] border-black pb-0.5 text-[13px] font-bold uppercase tracking-wide">

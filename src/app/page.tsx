@@ -202,7 +202,7 @@ export default async function Home() {
           {/* Focus areas */}
           <section className="space-y-3">
             <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#aeaeb2]">What I do</p>
-            <div className="glass-card rounded-2xl p-4 space-y-1">
+            <div className="glass-card glass-card-lift relative overflow-hidden rounded-2xl p-4 space-y-1">
               <p className="text-sm font-semibold text-[#1d1d1f]">Full-Stack Web Development</p>
               <p className="text-xs leading-relaxed text-[#6e6e73]">I build web applications using Next.js, React, TypeScript and Tailwind CSS with PostgreSQL and Prisma on the backend.</p>
               <div className="flex flex-wrap gap-1.5 pt-1">
@@ -211,7 +211,7 @@ export default async function Home() {
                 ))}
               </div>
             </div>
-            <div className="glass-card rounded-2xl p-4 space-y-1">
+            <div className="glass-card glass-card-lift relative overflow-hidden rounded-2xl p-4 space-y-1">
               <p className="text-sm font-semibold text-[#1d1d1f]">Security Tooling</p>
               <p className="text-xs leading-relaxed text-[#6e6e73]">I write Python tools like network scanners, process monitors, tokenstealers and VirusTotal-integrated malware scanners to detect and analyze threats.</p>
               <div className="flex flex-wrap gap-1.5 pt-1">
@@ -220,7 +220,7 @@ export default async function Home() {
                 ))}
               </div>
             </div>
-            <div className="glass-card rounded-2xl p-4 space-y-1">
+            <div className="glass-card glass-card-lift relative overflow-hidden rounded-2xl p-4 space-y-1">
               <p className="text-sm font-semibold text-[#1d1d1f]">Ethical Hacking</p>
               <p className="text-xs leading-relaxed text-[#6e6e73]">I practice offensive security and hands-on work with common pentesting tools. I also analyze how attacks from token grabbers work to better understand and defend against them.</p>
               <div className="flex flex-wrap gap-1.5 pt-1">

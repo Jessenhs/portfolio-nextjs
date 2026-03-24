@@ -161,7 +161,15 @@ export default async function Home() {
                 Website
               </a>
             )}
-
+            <a
+              href="/cv"
+              className="flex items-center gap-2.5 text-sm text-[#888] transition-colors hover:text-white"
+            >
+              <svg className="h-3.5 w-3.5 shrink-0" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M3 1.5A1.5 1.5 0 0 1 4.5 0h7A1.5 1.5 0 0 1 13 1.5v13A1.5 1.5 0 0 1 11.5 16h-7A1.5 1.5 0 0 1 3 14.5zm1.5 0v13h7v-13zM5 4.75a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5A.75.75 0 0 1 5 4.75m0 3a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5A.75.75 0 0 1 5 7.75m0 3a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5A.75.75 0 0 1 5 10.75" />
+              </svg>
+              CV
+            </a>
             {profile?.location && (
               <div className="flex items-center gap-2.5 text-sm text-[#555]">
                 <svg className="h-3.5 w-3.5 shrink-0" viewBox="0 0 16 16" fill="currentColor">

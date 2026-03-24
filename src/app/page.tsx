@@ -194,7 +194,7 @@ export default async function Home() {
                 <p className="max-w-lg text-sm leading-relaxed text-[#6e6e73]">{bio}</p>
               )}
               <p className="max-w-lg text-sm leading-relaxed text-[#6e6e73]">
-                I care about clean code, good design, and shipping things that work. Currently open to new opportunities.
+                I care about clean code, good design, and shipping things that work.
               </p>
             </div>
           </section>

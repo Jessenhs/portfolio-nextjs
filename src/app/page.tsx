@@ -79,9 +79,9 @@ export default async function Home() {
 
       {/* ── Background blobs — strong enough to show through the glass ── */}
       <div className="pointer-events-none fixed inset-0 overflow-hidden" aria-hidden="true">
-        <div className="absolute -right-32 -top-32 h-[560px] w-[560px] rounded-full bg-[#adb8e8] blur-[90px] opacity-55" />
-        <div className="absolute -bottom-32 -left-32 h-[520px] w-[520px] rounded-full bg-[#9ec4e4] blur-[85px] opacity-50" />
-        <div className="absolute left-1/2 top-1/2 h-[380px] w-[380px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#c4cff0] blur-[70px] opacity-65" />
+        <div className="absolute -right-32 -top-32 h-[560px] w-[560px] rounded-full bg-[#adb8e8] blur-[90px] opacity-30" />
+        <div className="absolute -bottom-32 -left-32 h-[520px] w-[520px] rounded-full bg-[#9ec4e4] blur-[85px] opacity-25" />
+        <div className="absolute left-1/2 top-1/2 h-[380px] w-[380px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#c4cff0] blur-[70px] opacity-35" />
       </div>
 
       {/* ── Nav ── */}

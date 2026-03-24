@@ -162,11 +162,11 @@
     0 16px 40px rgba(0, 0, 0, 0.10);
 }
 
-/* Frosted nav bar — matches the blue-tinted page */
+/* Frosted nav bar — transparent enough for blobs to bleed through */
 .glass-nav {
   backdrop-filter: blur(28px) saturate(1.8);
   -webkit-backdrop-filter: blur(28px) saturate(1.8);
-  background: rgba(240, 242, 248, 0.80);
+  background: rgba(240, 242, 248, 0.45);
 }
 
 /* Availability dot — Apple green */

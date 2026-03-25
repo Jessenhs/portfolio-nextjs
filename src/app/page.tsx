@@ -274,7 +274,7 @@ export default async function Home() {
       {/* ── Footer ── */}
       <footer className="border-t border-black/[0.06]">
         <div className="mx-auto flex max-w-5xl items-center justify-center px-6 py-7">
-          <span className="text-xs text-[#aeaeb2]">© {new Date().getFullYear()} Jesse</span>
+          <span className="text-xs text-[#aeaeb2]">© {new Date().getFullYear()} Jessenhs.dev</span>
         </div>
       </footer>
 

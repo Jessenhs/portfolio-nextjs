@@ -1,5 +1,5 @@
-const USERNAME = process.env.GITHUB_USERNAME!;
-const TOKEN = process.env.GITHUB_TOKEN;
+const USERNAME = import.meta.env.GITHUB_USERNAME;
+const TOKEN = import.meta.env.GITHUB_TOKEN;
 
 const headers: HeadersInit = TOKEN
   ? { Authorization: `Bearer ${TOKEN}`, "Content-Type": "application/json" }
@@ -30,11 +30,9 @@ export interface Repo {
 }
 
 export async function getProfile(): Promise<GitHubProfile | null> {
+  if (!USERNAME) return null;
   try {
-    const res = await fetch(`https://api.github.com/users/${USERNAME}`, {
-      headers,
-      next: { revalidate: 3600 },
-    });
+    const res = await fetch(`https://api.github.com/users/${USERNAME}`, { headers });
     if (!res.ok) return null;
     return res.json();
   } catch {
@@ -43,6 +41,8 @@ export async function getProfile(): Promise<GitHubProfile | null> {
 }
 
 export async function getPinnedRepos(): Promise<Repo[]> {
+  if (!USERNAME) return [];
+
   if (TOKEN) {
     try {
       const query = `{
@@ -65,7 +65,6 @@ export async function getPinnedRepos(): Promise<Repo[]> {
         method: "POST",
         headers,
         body: JSON.stringify({ query }),
-        next: { revalidate: 3600 },
       });
       if (res.ok) {
         const json = await res.json();
@@ -81,7 +80,7 @@ export async function getPinnedRepos(): Promise<Repo[]> {
   try {
     const res = await fetch(
       `https://api.github.com/users/${USERNAME}/repos?sort=stars&per_page=6&type=public`,
-      { headers, next: { revalidate: 3600 } }
+      { headers }
     );
     if (!res.ok) return [];
     const repos = await res.json();
@@ -91,7 +90,7 @@ export async function getPinnedRepos(): Promise<Repo[]> {
       url: r.html_url,
       stargazerCount: r.stargazers_count,
       forkCount: r.forks_count,
-      primaryLanguage: r.language ? { name: r.language, color: null } : null,
+      primaryLanguage: r.language ? { name: r.language as string, color: null } : null,
     }));
   } catch {
     return [];

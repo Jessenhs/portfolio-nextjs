@@ -1,0 +1,229 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Jesse Nieuwenhuis — CV">
+  <style is:global>
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+
+    @media print {
+      html, body {
+        margin: 0;
+        padding: 0;
+        background: white !important;
+        color: black !important;
+      }
+
+      .no-print {
+        display: none !important;
+      }
+
+      .cv-page-bg {
+        background: white !important;
+        padding: 0 !important;
+      }
+
+      .cv-paper {
+        width: 210mm !important;
+        min-height: 297mm !important;
+        padding: 12mm 15mm !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+      }
+    }
+  </style>
+
+  <!-- Nav -->
+  <div class="no-print sticky top-0 z-50 border-b border-black/[0.06] bg-[#fafafa]">
+    <div class="mx-auto flex max-w-3xl items-center justify-between px-6 py-3">
+      <a href="/" class="rounded-md border border-black/[0.08] px-3 py-1.5 text-sm font-medium text-[#6e6e73] transition-colors hover:border-black/[0.15] hover:text-[#1d1d1f]">
+        ← Back
+      </a>
+      <button
+        id="download-btn"
+        class="rounded-md bg-[#1d1d1f] px-3 py-1.5 text-sm font-medium text-white transition-colors hover:bg-black"
+      >
+        Download PDF
+      </button>
+    </div>
+  </div>
+
+  <!-- Page bg -->
+  <div class="cv-page-bg min-h-screen bg-[#fafafa] px-4 py-8">
+    <div
+      class="cv-paper mx-auto bg-white"
+      style={{
+        fontFamily: "'Calibri', 'Arial', sans-serif",
+        lineHeight: 1.4,
+        color: "#000",
+        width: "100%",
+        maxWidth: "210mm",
+        minHeight: "297mm",
+        padding: "14mm 16mm",
+        boxSizing: "border-box",
+        borderRadius: "10px",
+        border: "1px solid rgba(0,0,0,0.06)",
+      }}
+    >
+      <!-- Header -->
+      <div class="mb-2.5 border-b-2 border-black pb-2 text-center">
+        <h1 class="m-0 mb-1 text-2xl font-bold uppercase tracking-wide">
+          Jesse Nieuwenhuis
+        </h1>
+        <div class="mb-1 text-xs font-semibold">
+          Software Engineer &amp; Self-taught Ethical Hacker
+        </div>
+        <div class="text-[10px] leading-relaxed">
+          The Netherlands | <a href="mailto:jessenhs@outlook.com" class="text-black no-underline">jessenhs@outlook.com</a><br />
+          Portfolio: <a href="https://jessenhs.dev" class="text-black no-underline">jessenhs.dev</a> | GitHub: <a href="https://github.com/Jessenhs" class="text-black no-underline">github.com/Jessenhs</a>
+        </div>
+      </div>
+
+      <!-- Profile -->
+      <div class="mb-2.5">
+        <div class="my-2 border-b-[1.5px] border-black pb-0.5 text-[13px] font-bold uppercase tracking-wide">
+          PROFILE
+        </div>
+        <div class="text-[10px] leading-relaxed">
+          Ambitious software engineer currently in year 2 of MBO4 Software Development. With hands-on experience across 17+ projects spanning web applications, offensive security tools, desktop software, and e-commerce platforms, I bring a strong foundation in full-stack development combined with a self-taught passion for ethical hacking and cybersecurity. Outside of my studies, I taught myself offensive and defensive security techniques — from analyzing malware behavior to building real-time network monitoring tools — purely driven by curiosity and passion. My long-term goal is to combine both worlds and found a cybersecurity services company that helps businesses protect their digital assets.
+        </div>
+      </div>
+
+      <!-- Technical Skills -->
+      <div class="mb-2.5">
+        <div class="my-2 border-b-[1.5px] border-black pb-0.5 text-[13px] font-bold uppercase tracking-wide">
+          TECHNICAL SKILLS
+        </div>
+        <div class="text-[10px] leading-relaxed">
+          <strong>Programming Languages:</strong> Python, C#, PHP, JavaScript, TypeScript, HTML, CSS, SQL<br />
+          <strong>Frameworks &amp; Libraries:</strong> Astro, Next.js, React, Laravel, Tailwind CSS, Prisma ORM, WPF (.NET)<br />
+          <strong>Cybersecurity:</strong> Nmap, Kali Linux, malware analysis, network scanning, process scanning, offensive malware<br />
+          <strong>Databases:</strong> PostgreSQL, SQLite, MySQL, Prisma ORM<br />
+          <strong>DevOps &amp; Tools:</strong> Git, GitHub, Docker, VS Code, Cursor, WSL, npm, CI/CD basics<br />
+          <strong>Platforms:</strong> Windows, Linux (Kali &amp; Ubuntu), WSL
+        </div>
+      </div>
+
+      <!-- Professional Experience -->
+      <div class="mb-2.5">
+        <div class="my-2 border-b-[1.5px] border-black pb-0.5 text-[13px] font-bold uppercase tracking-wide">
+          PROFESSIONAL EXPERIENCE
+        </div>
+        <div class="mb-0.5 flex items-baseline justify-between">
+          <div>
+            <div class="text-[11px] font-bold">Intern Software Developer</div>
+            <div class="text-[11px] font-bold">IACT B.V., Haaksbergen</div>
+          </div>
+          <div class="text-[10px] italic">Sept 2025 — Feb 2026</div>
+        </div>
+        <ul class="my-0.5 ml-5 p-0 text-[10px]">
+          <li class="mb-0.5">Designed and developed HMI (Human-Machine Interface) desktop applications in C# using WPF (.NET), enabling operators to monitor and control PLC-driven industrial systems through intuitive real-time dashboards.</li>
+          <li class="mb-0.5">Implemented input/output control logic and live status displays, ensuring accurate communication between the software interface and the underlying hardware.</li>
+          <li class="mb-0.5">Built and maintained a company website using PHP and JavaScript, handling both front-end design and back-end functionality to improve the company's online presence.</li>
+        </ul>
+      </div>
+
+      <!-- Projects -->
+      <div class="mb-2.5">
+        <div class="my-2 border-b-[1.5px] border-black pb-0.5 text-[13px] font-bold uppercase tracking-wide">
+          PROJECTS
+        </div>
+
+        <div class="mb-0.5 mt-1 text-[10.5px] font-semibold">Web Development</div>
+
+        <div class="mb-1">
+          <div class="text-[11px] font-bold">Portfolio (Astro) — TypeScript, Astro, Tailwind CSS · 2026</div>
+          <ul class="my-0.5 ml-5 p-0 text-[10px]">
+            <li class="mb-0.5">Static, content-driven portfolio site with a clean design and GitHub-powered project list.</li>
+            <li class="mb-0.5"><strong>GitHub:</strong> github.com/Jessenhs/portfolio-nextjs</li>
+          </ul>
+        </div>
+
+        <div class="mb-1">
+          <div class="text-[11px] font-bold">JamVRC — TypeScript, Next.js, Neon PostgreSQL, NextAuth · 2026</div>
+          <ul class="my-0.5 ml-5 p-0 text-[10px]">
+            <li class="mb-0.5">Virtual rally championship tracker with Google OAuth, component-driven architecture, and live data from Neon serverless Postgres. Deployed on Vercel with custom domain.</li>
+            <li class="mb-0.5"><strong>GitHub:</strong> github.com/Jessenhs/jamvrc</li>
+          </ul>
+        </div>
+
+        <div class="mb-0.5 mt-1.5 text-[10.5px] font-semibold">Security &amp; Networking</div>
+
+        <div class="mb-1">
+          <div class="text-[11px] font-bold">Security Scanner — Python · 2026</div>
+          <ul class="my-0.5 ml-5 p-0 text-[10px]">
+            <li class="mb-0.5">Multi-component toolkit: AppData sensitive path detection, real-time network connection monitoring, suspicious process scanning, and VirusTotal API integration with MD5 hashing for automated malware analysis.</li>
+            <li class="mb-0.5"><strong>GitHub:</strong> github.com/Jessenhs/security-scanner</li>
+          </ul>
+        </div>
+
+        <div class="mb-1">
+          <div class="text-[11px] font-bold">Admin Panel — Python · 2025</div>
+          <ul class="my-0.5 ml-5 p-0 text-[10px]">
+            <li class="mb-0.5">Network security monitoring tool with IP logging and local traffic analysis capabilities. ★ 1 star on GitHub.</li>
+          </ul>
+        </div>
+
+        <div class="mb-0.5 mt-1.5 text-[10.5px] font-semibold">Desktop &amp; Industrial</div>
+
+        <div class="mb-1">
+          <div class="text-[11px] font-bold">HMI Panel — C#, WPF, .NET · 2025</div>
+          <ul class="my-0.5 ml-5 p-0 text-[10px]">
+            <li class="mb-0.5">Human-Machine Interface for PLC control systems. Manages industrial inputs/outputs with real-time monitoring and control dashboards.</li>
+            <li class="mb-0.5"><strong>GitHub:</strong> github.com/Jessenhs/hmi-panel</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Education -->
+      <div class="mb-2.5">
+        <div class="my-2 border-b-[1.5px] border-black pb-0.5 text-[13px] font-bold uppercase tracking-wide">
+          EDUCATION
+        </div>
+        <div class="mb-0.5 flex items-baseline justify-between">
+          <div>
+            <div class="text-[11px] font-bold">MBO4 — Software Development</div>
+            <div class="text-[11px] font-semibold">Aventus, The Netherlands</div>
+          </div>
+          <div class="text-[10px] italic">2024 — Present</div>
+        </div>
+        <div class="mt-2 flex items-baseline justify-between">
+          <div>
+            <div class="text-[11px] font-bold">MAVO</div>
+            <div class="text-[11px] font-semibold">De Waerdenborch, Holten</div>
+          </div>
+          <div class="text-[10px] italic">2020 — 2024</div>
+        </div>
+      </div>
+
+      <!-- Certifications & Goals -->
+      <div class="mb-2.5">
+        <div class="my-2 border-b-[1.5px] border-black pb-0.5 text-[13px] font-bold uppercase tracking-wide">
+          CERTIFICATIONS &amp; GOALS
+        </div>
+        <div class="text-[10px] leading-relaxed">
+          <strong>Target certifications:</strong> CompTIA Security+, CEH (Certified Ethical Hacker), OSCP<br />
+          <strong>Career goal:</strong> Founding a cybersecurity services company — offering penetration testing, security audits, and protective products to businesses.
+        </div>
+      </div>
+
+      <!-- Languages -->
+      <div class="mb-2.5">
+        <div class="my-2 border-b-[1.5px] border-black pb-0.5 text-[13px] font-bold uppercase tracking-wide">
+          LANGUAGES
+        </div>
+        <div class="text-[10px] leading-relaxed">
+          <strong>Dutch:</strong> Native speaker | <strong>English:</strong> Professional working proficiency
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("download-btn")?.addEventListener("click", () => window.print());
+  </script>
+</Layout>

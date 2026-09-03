@@ -33,6 +33,31 @@
   }
 }
 
+/* Soft light from the bottom-left: a faint shadow on white, a faint glow on black. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+    80vmax circle at 0% 100%,
+    var(--glow) 0%,
+    transparent 70%
+  );
+}
+:root {
+  --glow: rgb(0 0 0 / 0.06);
+}
+.dark {
+  --glow: rgb(255 255 255 / 0.07);
+}
+@media print {
+  body::before {
+    display: none;
+  }
+}
+
 /* Whole-page crossfade when the theme switches (see ThemeToggle.astro). */
 ::view-transition-old(root),
 ::view-transition-new(root) {

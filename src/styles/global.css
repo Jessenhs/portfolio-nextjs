@@ -33,6 +33,23 @@
   }
 }
 
+/* Hover: a thin outline around the row, nothing else.
+   Easing and duration from apple.com. */
+.glass {
+  transition:
+    box-shadow 320ms cubic-bezier(0.4, 0, 0.6, 1),
+    color 320ms cubic-bezier(0.4, 0, 0.6, 1);
+}
+.glass:hover {
+  box-shadow: 0 0 0 1px var(--hover-line);
+}
+:root {
+  --hover-line: rgb(0 0 0 / 0.12);
+}
+.dark {
+  --hover-line: rgb(255 255 255 / 0.14);
+}
+
 /* Whole-page crossfade when the theme switches (see ThemeToggle.astro). */
 ::view-transition-old(root),
 ::view-transition-new(root) {

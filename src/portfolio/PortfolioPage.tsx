@@ -41,7 +41,8 @@ export default async function PortfolioPage() {
 
   return (
     <div className="min-h-screen bg-white text-black dark:bg-black dark:text-white">
-      <div className="mx-auto flex max-w-4xl flex-col md:min-h-screen md:flex-row">
+      <div className="relative mx-auto flex max-w-4xl flex-col md:min-h-screen md:flex-row">
+        <ThemeToggle className="absolute top-8 right-4 md:top-14" />
 
         {/* Left */}
         <aside className="flex flex-col justify-between px-6 py-10 md:sticky md:top-0 md:h-screen md:w-56 md:shrink-0 md:py-16">
@@ -57,10 +58,6 @@ export default async function PortfolioPage() {
                 <li><a href={SITE.cvPath} download className={link}>CV</a></li>
               </ul>
             </nav>
-          </div>
-
-          <div className="mt-10 md:mt-0">
-            <ThemeToggle />
           </div>
         </aside>
 

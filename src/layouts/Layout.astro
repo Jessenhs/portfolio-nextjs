@@ -32,15 +32,5 @@ const { title = SITE.title, description = SITE.description } = Astro.props;
   </head>
   <body class="min-h-screen bg-white text-black dark:bg-black dark:text-white">
     <slot />
-    <script>
-      // Track the cursor inside any .spot element so its highlight can follow it.
-      document.addEventListener("pointermove", (e) => {
-        const el = (e.target as Element | null)?.closest<HTMLElement>(".spot");
-        if (!el) return;
-        const r = el.getBoundingClientRect();
-        el.style.setProperty("--x", `${e.clientX - r.left}px`);
-        el.style.setProperty("--y", `${e.clientY - r.top}px`);
-      });
-    </script>
   </body>
 </html>

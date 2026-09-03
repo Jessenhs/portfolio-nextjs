@@ -33,47 +33,6 @@
   }
 }
 
-/* Glassy hover with a light that follows the cursor (position set by Layout.astro). */
-.spot {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  transition:
-    background-color 700ms ease-out,
-    box-shadow 700ms ease-out,
-    color 700ms ease-out;
-}
-.spot::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 700ms ease-out;
-  background: radial-gradient(
-    160px circle at var(--x, 50%) var(--y, 50%),
-    var(--spot-light),
-    transparent 65%
-  );
-}
-.spot:hover {
-  background-color: var(--spot-bg);
-  box-shadow: inset 0 0 0 1px var(--spot-edge);
-}
-.spot:hover::before {
-  opacity: 1;
-}
-:root {
-  --spot-bg: rgb(0 0 0 / 0.025);
-  --spot-edge: rgb(0 0 0 / 0.06);
-  --spot-light: rgb(0 0 0 / 0.06);
-}
-.dark {
-  --spot-bg: rgb(255 255 255 / 0.035);
-  --spot-edge: rgb(255 255 255 / 0.08);
-  --spot-light: rgb(255 255 255 / 0.1);
-}
-
 /* Whole-page crossfade when the theme switches (see ThemeToggle.astro). */
 ::view-transition-old(root),
 ::view-transition-new(root) {

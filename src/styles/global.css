@@ -33,33 +33,59 @@
   }
 }
 
-/* Apple-style glass on hover: translucent fill, hairline edge, a light catch
-   along the top edge and a soft shadow. Easing and duration from apple.com. */
+/* Apple-style glass on hover: translucent fill, a rim of light that is brightest
+   along the top edge and fades down the sides, plus a soft glow and shadow.
+   Easing and duration from apple.com. */
 .glass {
+  position: relative;
   transition:
     background-color 320ms cubic-bezier(0.4, 0, 0.6, 1),
     box-shadow 320ms cubic-bezier(0.4, 0, 0.6, 1),
     color 320ms cubic-bezier(0.4, 0, 0.6, 1);
+}
+/* The lit rim: a 1px gradient border drawn with a mask so the inside stays clear. */
+.glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(180deg, var(--rim-top), var(--rim-bottom));
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 320ms cubic-bezier(0.4, 0, 0.6, 1);
 }
 .glass:hover {
   background-color: var(--glass-fill);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   backdrop-filter: blur(20px) saturate(180%);
   box-shadow:
-    inset 0 0 0 1px var(--glass-edge),
-    inset 0 1px 0 var(--glass-highlight),
+    0 0 24px var(--glass-glow),
     0 4px 16px var(--glass-shadow);
+}
+.glass:hover::before {
+  opacity: 1;
 }
 :root {
   --glass-fill: rgb(255 255 255 / 0.6);
-  --glass-edge: rgb(0 0 0 / 0.06);
-  --glass-highlight: rgb(255 255 255 / 0.9);
+  --rim-top: rgb(0 0 0 / 0.16);
+  --rim-bottom: rgb(0 0 0 / 0.04);
+  --glass-glow: rgb(0 0 0 / 0.03);
   --glass-shadow: rgb(0 0 0 / 0.06);
 }
 .dark {
   --glass-fill: rgb(255 255 255 / 0.06);
-  --glass-edge: rgb(255 255 255 / 0.1);
-  --glass-highlight: rgb(255 255 255 / 0.14);
+  --rim-top: rgb(255 255 255 / 0.5);
+  --rim-bottom: rgb(255 255 255 / 0.08);
+  --glass-glow: rgb(255 255 255 / 0.07);
   --glass-shadow: rgb(0 0 0 / 0.5);
 }
 

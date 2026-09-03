@@ -4,10 +4,10 @@
  */
 
 export const SITE = {
-  title: "Jessenhs — Software Engineer",
+  title: "Jesse Nieuwenhuis — Software Engineer",
   description: "Software engineer building performant",
-  fallbackName: "Jesse",
-  fallbackUsername: "Jessenhs",
+  fallbackName: "Jesse Nieuwenhuis",
+  fallbackUsername:"Jesse Nieuwenhuis",
   fallbackBio:
     "I build things for the web — clean interfaces, solid backends, and everything in between.",
   tagline: "a software engineer who builds applications.",

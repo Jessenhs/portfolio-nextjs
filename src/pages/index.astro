@@ -12,7 +12,8 @@ const displayName = SITE.name;
 const username = profile?.login ?? SITE.fallbackUsername;
 const github = profile?.html_url ?? `https://github.com/${username}`;
 
-const link = "text-neutral-500 transition-colors hover:text-black dark:hover:text-white";
+const link =
+  "-mx-3 block rounded-xl px-3 py-1.5 text-neutral-500 transition-colors duration-700 ease-out hover:bg-neutral-100 hover:text-black dark:hover:bg-neutral-900 dark:hover:text-white";
 ---
 
 <Layout>
@@ -26,7 +27,7 @@ const link = "text-neutral-500 transition-colors hover:text-black dark:hover:tex
         <p class="mt-1 text-sm text-neutral-500">Software engineer</p>
 
         <nav class="mt-10">
-          <ul class="space-y-2 text-sm">
+          <ul class="space-y-0.5 text-sm">
             <li><a href={github} target="_blank" rel="noopener noreferrer" class={link}>GitHub</a></li>
             <li><a href={LINKS.linkedin} target="_blank" rel="noopener noreferrer" class={link}>LinkedIn</a></li>
             <li><a href={`mailto:${SITE.email}`} class={link}>Email</a></li>
@@ -70,7 +71,7 @@ const link = "text-neutral-500 transition-colors hover:text-black dark:hover:tex
         ) : (
           <p class="text-sm text-neutral-500">
             No projects yet.{" "}
-            <a href={`${github}?tab=repositories`} target="_blank" rel="noopener noreferrer" class={`${link} underline underline-offset-4`}>
+            <a href={`${github}?tab=repositories`} target="_blank" rel="noopener noreferrer" class="text-neutral-500 underline underline-offset-4 transition-colors hover:text-black dark:hover:text-white">
               See GitHub
             </a>
           </p>

@@ -5,80 +5,90 @@
 
 export const CV = {
   name: "Jesse Nieuwenhuis",
-  headline: "Full-Stack Developer & Cybersecurity Specialist",
+  headline: "Full-Stack Developer  •  Entrepreneur",
   location: "The Netherlands",
 
   profile:
-    "Ambitious software engineer currently in year 2 of MBO4 Software Development. With hands-on experience across 17+ projects spanning web applications, security tools, desktop software, and e-commerce platforms, I bring a strong foundation in full-stack development combined with a self-taught passion for ethical hacking and cybersecurity. Outside of my studies, I taught myself offensive and defensive security techniques — from analyzing malware behavior to building real-time network monitoring tools — purely driven by curiosity and passion. My long-term goal is to combine both worlds and found a cybersecurity services company that helps businesses protect their digital assets.",
+    "Software developer in year 3 of MBO4 Software Development. Experienced in building full-stack web apps, desktop software, and security tools. Already running my own company, NHS Services. Driven by building products and turning ideas into business.",
 
-  skills: [
-    { label: "Languages", value: "Python, C#, PHP, JavaScript, TypeScript, HTML, CSS, SQL, Bash" },
-    { label: "Frameworks", value: "Next.js, React, Laravel, Tailwind CSS, Prisma ORM, WPF (.NET), Astro" },
-    { label: "Cybersecurity", value: "Nmap, Aircrack-ng, Kali Linux, Wireshark, malware analysis, network recon, reverse shells, process scanning, defensive tooling" },
-    { label: "Databases", value: "PostgreSQL (Neon.tech), SQLite, Prisma ORM, MySQL" },
-    { label: "DevOps & Tools", value: "Git, GitHub, Docker, VS Code, Cursor, WSL, npm, CI/CD basics" },
-    { label: "Platforms", value: "Windows, Linux (Kali & Ubuntu), WSL2" },
+  experience: [
+    {
+      role: "Founder & Developer",
+      company: "NHS Services",
+      period: "2025 – Present",
+      description:
+        "Founded a web development and hosting company. Designed and delivered a custom website for a client, handling the full process from requirements to deployment. Project available on GitHub.",
+    },
+    {
+      role: "Employee",
+      company: "Lidl, Goor",
+      period: "Present",
+      description:
+        "Working in a fast-paced retail environment. Responsible for stock management, customer service, and store operations.",
+    },
+    {
+      role: "Software Development Intern",
+      company: "IACT",
+      period: "2025",
+      description:
+        "Internship focused on software development in a professional environment. Applied technical skills on real-world projects and collaborated within a development team.",
+    },
+    {
+      role: "Video Editor",
+      company: "Montertube",
+      period: "2024  •  6 months",
+      description:
+        "Edited and produced video content. Managed deadlines and delivered consistent output on schedule.",
+    },
   ],
 
-  projectGroups: [
+  skills: [
+    { label: "Languages", value: "C#/C++, Python, JavaScript/TypeScript, PHP, SQL, Bash, HTML/CSS" },
+    { label: "Frameworks", value: "Next.js, React, Laravel, Tailwind CSS, Prisma ORM, WPF/.NET, Astro" },
+    { label: "Databases", value: "PostgreSQL, MySQL, SQLite" },
+    { label: "DevOps", value: "Git, GitHub, Docker, CI/CD, WSL2" },
+    { label: "Editors", value: "Visual Studio, Zed, VS Code, Cursor" },
+    { label: "Platforms", value: "Windows, Linux (Kali & Ubuntu)" },
+    { label: "Security", value: "Nmap, Wireshark, malware analysis, network recon" },
+  ],
+
+  projects: [
     {
-      title: "Web Development",
-      projects: [
-        { name: "Portfolio (Next.js)", stack: "TypeScript, Next.js, Prisma", year: "2025", description: "Modern full-stack portfolio with dynamic content, responsive design, and PostgreSQL database integration via Neon.tech and Prisma ORM." },
-        { name: "Scrapper", stack: "HTML, JavaScript", year: "2025", description: "Web scraping tool for automated data extraction from websites with structured output." },
-        { name: "JamVRC", stack: "TypeScript", year: "2025", description: "TypeScript web application with modern architecture and component-driven design patterns." },
-        { name: "My-App", stack: "TypeScript", year: "2025", description: "Full-stack TypeScript application showcasing modern development practices and clean architecture." },
-        { name: "Sunny Travels", stack: "JavaScript", year: "2025", description: "Travel-themed web application with interactive features and dynamic content rendering." },
-        { name: "Chef's Website", stack: "PHP", year: "2025", description: "Professional restaurant website with menu management, reservations, and responsive mobile design." },
-        { name: "KrackX Webstore", stack: "PHP", year: "2025", description: "Full e-commerce store with product catalog, shopping cart, checkout flow, and order management." },
-        { name: "Portfolio PHP", stack: "PHP", year: "2025", description: "Service-oriented portfolio with integrated payment functionality and client showcase." },
-        { name: "Simple PHP Webshop", stack: "PHP", year: "2025", description: "Complete e-commerce platform with product listings, cart system, and order processing." },
-        { name: "Portfolio (Astro)", stack: "Astro", year: "2025", description: "Blazing-fast static portfolio built with Astro framework for optimal performance." },
-        { name: "BeatVault", stack: "PHP", year: "2025", description: "Music beat marketplace with catalog browsing, preview playback, and purchasing flow." },
-        { name: "Beats Website", stack: "Web", year: "2025", description: "Music-focused platform for showcasing and distributing audio content." },
-        { name: "Password Generator", stack: "JavaScript, React", year: "2025", description: "Secure password generator with customizable length, character sets, and copy-to-clipboard." },
-      ],
+      name: "Security Scanner",
+      stack: "Python",
+      description:
+        "Real-time network monitoring, process scanning, and VirusTotal API integration for malware detection.",
     },
     {
-      title: "Security & Networking",
-      projects: [
-        { name: "Security Scanner", stack: "Python", year: "2025", description: "Multi-component toolkit: AppData path detection, real-time network monitoring, suspicious process scanning, and VirusTotal API integration with MD5 hashing for automated malware analysis." },
-        { name: "Admin Panel", stack: "Python", year: "2025", description: "Network security monitoring tool with IP logging and traffic analysis capabilities." },
-      ],
+      name: "HMI Panel",
+      stack: "C#/C++, WPF/.NET",
+      description:
+        "Human-Machine Interface for PLC control systems with real-time industrial I/O monitoring.",
     },
     {
-      title: "Desktop & Industrial",
-      projects: [
-        { name: "HMI Panel", stack: "C#, WPF, .NET", year: "2025", description: "Human-Machine Interface for PLC control systems. Manages industrial inputs/outputs with real-time monitoring and control dashboards." },
-      ],
+      name: "Portfolio",
+      stack: "Next.js, TypeScript, Prisma",
+      description:
+        "Full-stack portfolio with dynamic content and PostgreSQL integration via Neon.tech.",
+    },
+    {
+      name: "KrackX Webstore",
+      stack: "PHP",
+      description:
+        "Complete e-commerce store with product catalog, cart, checkout, and order management.",
     },
   ],
 
   education: {
-    title: "MBO4 – Software Development",
-    meta: "Year 2  •  Currently enrolled  •  The Netherlands",
-    points: [
-      "Core focus: software development, databases, web technologies",
-      "Self-directed specialization in cybersecurity and ethical hacking",
-      "Hands-on approach: building real tools and applications, not just coursework",
-    ],
+    title: "MBO4 — Software Development",
+    meta: "Year 3  •  Currently enrolled",
+    description: "Core focus: software development, databases, web technologies.",
   },
 
-  goals: [
-    { label: "Target certifications", value: "CompTIA Security+, CEH (Certified Ethical Hacker), OSCP" },
-    { label: "Career goal", value: "Founding a cybersecurity services company — offering penetration testing, security audits, and protective products to businesses." },
-  ],
-
   languages: [
-    { label: "Dutch", value: "Native speaker" },
+    { label: "Dutch", value: "Native" },
     { label: "English", value: "Professional working proficiency" },
   ],
 
-  interests: [
-    "Ethical hacking & CTF challenges",
-    "Malware analysis & reverse engineering",
-    "Open-source security tooling",
-    "Gaming",
-    "Building things that work",
-  ],
+  interests: ["Building products", "Entrepreneurship", "Ethical hacking & CTFs", "Gaming"],
 };

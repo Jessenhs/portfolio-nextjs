@@ -81,6 +81,22 @@ const link = "text-neutral-500 transition-colors hover:text-black dark:hover:tex
         </section>
 
         <section>
+          <h2 class={heading}>Professional experience</h2>
+          <ul class="space-y-5">
+            {CV.experience.map((job) => (
+              <li>
+                <div class="flex flex-wrap items-baseline justify-between gap-x-4">
+                  <p class="text-sm">{job.role}</p>
+                  <p class="text-xs text-neutral-400 dark:text-neutral-600">{job.period}</p>
+                </div>
+                <p class="text-sm text-neutral-500">{job.company}</p>
+                <p class="mt-1 text-sm leading-relaxed text-neutral-500">{job.description}</p>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section>
           <h2 class={heading}>Technical skills</h2>
           <dl class="space-y-2">
             {CV.skills.map(({ label, value }) => (
@@ -93,58 +109,34 @@ const link = "text-neutral-500 transition-colors hover:text-black dark:hover:tex
         </section>
 
         <section>
-          <h2 class={heading}>Projects</h2>
-          <div class="space-y-6">
-            {CV.projectGroups.map((group) => (
-              <div>
-                <h3 class="mb-2 text-sm">{group.title}</h3>
-                <ul class="space-y-3">
-                  {group.projects.map((p) => (
-                    <li>
-                      <div class="flex flex-wrap items-baseline justify-between gap-x-4">
-                        <p class="text-sm font-medium">{p.name}</p>
-                        <p class="text-xs text-neutral-400 dark:text-neutral-600">{p.stack} · {p.year}</p>
-                      </div>
-                      <p class="mt-0.5 text-sm text-neutral-500">{p.description}</p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+          <h2 class={heading}>Key projects</h2>
+          <ul class="space-y-4">
+            {CV.projects.map((p) => (
+              <li>
+                <div class="flex flex-wrap items-baseline gap-x-3">
+                  <p class="text-sm">{p.name}</p>
+                  <p class="text-xs text-neutral-400 dark:text-neutral-600">{p.stack}</p>
+                </div>
+                <p class="mt-0.5 text-sm text-neutral-500">{p.description}</p>
+              </li>
             ))}
-          </div>
-        </section>
-
-        <section>
-          <h2 class={heading}>Education</h2>
-          <p class="text-sm font-medium">{CV.education.title}</p>
-          <p class="mt-0.5 text-sm text-neutral-500">{CV.education.meta}</p>
-          <ul class="mt-2 list-disc space-y-1 pl-5 text-sm">
-            {CV.education.points.map((pt) => <li>{pt}</li>)}
           </ul>
         </section>
 
         <section>
-          <h2 class={heading}>Certifications &amp; goals</h2>
-          <dl class="space-y-2">
-            {CV.goals.map(({ label, value }) => (
-              <div class="grid gap-0.5 sm:grid-cols-[9rem_1fr] sm:gap-6">
-                <dt class="text-sm text-neutral-500">{label}</dt>
-                <dd class="text-sm">{value}</dd>
-              </div>
-            ))}
-          </dl>
+          <h2 class={heading}>Education</h2>
+          <div class="flex flex-wrap items-baseline justify-between gap-x-4">
+            <p class="text-sm">{CV.education.title}</p>
+            <p class="text-xs text-neutral-400 dark:text-neutral-600">{CV.education.meta}</p>
+          </div>
+          <p class="mt-1 text-sm text-neutral-500">{CV.education.description}</p>
         </section>
 
         <section>
           <h2 class={heading}>Languages</h2>
-          <dl class="space-y-2">
-            {CV.languages.map(({ label, value }) => (
-              <div class="grid gap-0.5 sm:grid-cols-[9rem_1fr] sm:gap-6">
-                <dt class="text-sm text-neutral-500">{label}</dt>
-                <dd class="text-sm">{value}</dd>
-              </div>
-            ))}
-          </dl>
+          <p class="text-sm">
+            {CV.languages.map(({ label, value }) => `${label} — ${value}`).join("  •  ")}
+          </p>
         </section>
 
         <section>

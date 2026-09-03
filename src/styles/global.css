@@ -33,10 +33,16 @@
   }
 }
 
-/* Whole-page crossfade when the theme switches (see ThemeToggle.astro). */
+/* Theme switch: the new theme is revealed in a circle growing from the toggle
+   button (animated from ThemeToggle.astro). The old snapshot sits underneath. */
 ::view-transition-old(root),
 ::view-transition-new(root) {
-  animation-duration: 300ms;
-  animation-timing-function: ease-in-out;
+  animation: none;
   mix-blend-mode: normal;
+}
+::view-transition-old(root) {
+  z-index: 1;
+}
+::view-transition-new(root) {
+  z-index: 2;
 }

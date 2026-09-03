@@ -40,13 +40,6 @@ const link = "text-neutral-500 transition-colors hover:text-black dark:hover:tex
     <main class="flex-1 space-y-16 px-6 py-10 md:py-16 md:pl-12">
       <section>
         <h2 class="mb-4 text-xs uppercase tracking-widest text-neutral-400 dark:text-neutral-600">
-          About
-        </h2>
-        <p class="max-w-prose text-sm leading-relaxed text-neutral-500">{CV.profile}</p>
-      </section>
-
-      <section>
-        <h2 class="mb-4 text-xs uppercase tracking-widest text-neutral-400 dark:text-neutral-600">
           Projects
         </h2>
         {repos.length > 0 ? (
@@ -86,24 +79,6 @@ const link = "text-neutral-500 transition-colors hover:text-black dark:hover:tex
 
       <section>
         <h2 class="mb-4 text-xs uppercase tracking-widest text-neutral-400 dark:text-neutral-600">
-          Experience
-        </h2>
-        <ul class="space-y-5">
-          {CV.experience.map((job) => (
-            <li>
-              <div class="flex flex-wrap items-baseline justify-between gap-x-4">
-                <p class="text-sm">{job.role}</p>
-                <p class="text-xs text-neutral-400 dark:text-neutral-600">{job.period}</p>
-              </div>
-              <p class="text-sm text-neutral-500">{job.company}</p>
-              <p class="mt-1 max-w-prose text-sm leading-relaxed text-neutral-500">{job.description}</p>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section>
-        <h2 class="mb-4 text-xs uppercase tracking-widest text-neutral-400 dark:text-neutral-600">
           Skills
         </h2>
         <dl class="space-y-4">
@@ -114,24 +89,6 @@ const link = "text-neutral-500 transition-colors hover:text-black dark:hover:tex
             </div>
           ))}
         </dl>
-      </section>
-
-      <section>
-        <h2 class="mb-4 text-xs uppercase tracking-widest text-neutral-400 dark:text-neutral-600">
-          Education
-        </h2>
-        <div class="flex flex-wrap items-baseline justify-between gap-x-4">
-          <p class="text-sm">{CV.education.title}</p>
-          <p class="text-xs text-neutral-400 dark:text-neutral-600">{CV.education.meta}</p>
-        </div>
-        <p class="mt-1 text-sm text-neutral-500">{CV.education.description}</p>
-      </section>
-
-      <section>
-        <h2 class="mb-4 text-xs uppercase tracking-widest text-neutral-400 dark:text-neutral-600">
-          Interests
-        </h2>
-        <p class="text-sm text-neutral-500">{CV.interests.join("  •  ")}</p>
       </section>
     </main>
   </div>

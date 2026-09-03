@@ -1,0 +1,12 @@
+---
+/**
+ * Renders a name in Proggy Clean with a touch of extra space around each "w".
+ * The bitmap "w" fills its whole cell, so without this it reads as a dark spot.
+ */
+interface Props {
+  name: string;
+}
+const { name } = Astro.props;
+const parts = name.split(/(w)/);
+---
+{parts.map((part) => (part === "w" ? <span class="mx-[0.07em]">w</span> : part))}

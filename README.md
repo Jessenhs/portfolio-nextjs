@@ -23,12 +23,13 @@ repos are shown instead.
 src/
   layouts/Layout.astro          # HTML shell, metadata, pre-paint theme script
   pages/index.astro             # the portfolio page
+  pages/cv.astro                # CV page with print-to-PDF
   components/ThemeToggle.astro  # sun/moon light-dark switch
   portfolio/data.ts             # content, links, skills, branding
+  portfolio/cv.ts               # CV content
   lib/github.ts                 # GitHub profile / repo fetching (build time)
   styles/global.css             # Tailwind entrypoint, Proggy Clean font, theme transition
 public/
-  assets/                       # CV download
   fonts/ProggyCleanSZ.ttf       # Proggy Clean (slashed zero) by Tristan Grimmer
   favicon.ico
 ```

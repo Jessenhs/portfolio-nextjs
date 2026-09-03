@@ -14,7 +14,6 @@ export const SITE = {
   about:
     "I care about clean code, good design, and shipping things that work. Currently open to new opportunities.",
   email: "jessenieuwenhuis@hotmail.com",
-  cvPath: "/assets/Jesse_Nieuwenhuis_CV.docx",
 };
 
 export const LINKS = {

@@ -3,7 +3,8 @@ import Layout from "@/layouts/Layout.astro";
 import ThemeToggle from "@/components/ThemeToggle.astro";
 import Name from "@/components/Name.astro";
 import { getProfile, getPinnedRepos } from "@/lib/github";
-import { SITE, LINKS, SKILLS } from "@/portfolio/data";
+import { SITE, LINKS } from "@/portfolio/data";
+import { CV } from "@/portfolio/cv";
 
 const [profile, repos] = await Promise.all([getProfile(), getPinnedRepos()]);
 
@@ -81,10 +82,10 @@ const link = "text-neutral-500 transition-colors hover:text-black dark:hover:tex
           Skills
         </h2>
         <dl class="space-y-4">
-          {SKILLS.map(({ category, items }) => (
+          {CV.skills.map(({ label, value }) => (
             <div class="grid gap-1 sm:grid-cols-[10rem_1fr] sm:gap-6">
-              <dt class="text-sm text-neutral-500">{category}</dt>
-              <dd class="text-sm">{items.join(", ")}</dd>
+              <dt class="text-sm text-neutral-500">{label}</dt>
+              <dd class="text-sm">{value}</dd>
             </div>
           ))}
         </dl>

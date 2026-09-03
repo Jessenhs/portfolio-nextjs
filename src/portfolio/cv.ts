@@ -5,7 +5,7 @@
 
 export const CV = {
   name: "Jesse Nieuwenhuis",
-  headline: "Full-Stack Developer  •  Entrepreneur",
+  headline: "Full-Stack Developer",
   location: "The Netherlands",
 
   profile:
@@ -15,21 +15,21 @@ export const CV = {
     {
       role: "Founder & Developer",
       company: "NHS Services",
-      period: "2025 – Present",
+      period: "2026 Apr – Present",
       description:
-        "Founded a web development and hosting company. Designed and delivered a custom website for a client, handling the full process from requirements to deployment. Project available on GitHub.",
+        "Founded a web development and hosting company. Designed and delivered a custom website for a client, handling the full process from requirements to deployment.",
     },
     {
       role: "Employee",
       company: "Lidl, Goor",
-      period: "Present",
+      period: "2025 Feb – Present",
       description:
         "Working in a fast-paced retail environment. Responsible for stock management, customer service, and store operations.",
     },
     {
       role: "Software Development Intern",
       company: "IACT",
-      period: "2025",
+      period: "2025 Sept - 2026 Feb",
       description:
         "Internship focused on software development in a professional environment. Applied technical skills on real-world projects and collaborated within a development team.",
     },
@@ -43,13 +43,12 @@ export const CV = {
   ],
 
   skills: [
-    { label: "Languages", value: "C#/C++, Python, JavaScript/TypeScript, PHP, SQL, Bash, HTML/CSS" },
+    { label: "Languages", value: "C#/C++, Rust, Python, JavaScript/TypeScript, PHP, SQL, Bash, HTML/CSS" },
     { label: "Frameworks", value: "Next.js, React, Laravel, Tailwind CSS, Prisma ORM, WPF/.NET, Astro" },
     { label: "Databases", value: "PostgreSQL, MySQL, SQLite" },
     { label: "DevOps", value: "Git, GitHub, Docker, CI/CD, WSL2" },
-    { label: "Editors", value: "Visual Studio, Zed, VS Code, Cursor" },
-    { label: "Platforms", value: "Windows, Linux (Kali & Ubuntu)" },
-    { label: "Security", value: "Nmap, Wireshark, malware analysis, network recon" },
+    { label: "Editors", value: "Visual Studio, Zed," },
+    { label: "Platforms", value: "Windows, WSL, macOS, Linux, (Kali & Ubuntu)" },
   ],
 
   projects: [
@@ -72,10 +71,10 @@ export const CV = {
         "Full-stack portfolio with dynamic content and PostgreSQL integration via Neon.tech.",
     },
     {
-      name: "KrackX Webstore",
-      stack: "PHP",
+      name: "Admin Panel",
+      stack: "Python",
       description:
-        "Complete e-commerce store with product catalog, cart, checkout, and order management.",
+        "Network security dashboard with DDoS attack detection, traffic monitoring",
     },
   ],
 
@@ -90,5 +89,5 @@ export const CV = {
     { label: "English", value: "Professional working proficiency" },
   ],
 
-  interests: ["Building products", "Entrepreneurship", "Ethical hacking & CTFs", "Gaming"],
+  interests: ["Building products", "Entrepreneurship", "Ethical hacking", "Gaming Cheats", "Gaming"],
 };

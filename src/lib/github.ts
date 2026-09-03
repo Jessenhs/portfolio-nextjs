@@ -5,6 +5,19 @@ const headers: HeadersInit = TOKEN
   ? { Authorization: `Bearer ${TOKEN}`, "Content-Type": "application/json" }
   : { "Content-Type": "application/json" };
 
+// REST call that retries unauthenticated if the token is rejected,
+// so an expired GITHUB_TOKEN still shows public data.
+async function fetchRest(url: string): Promise<Response> {
+  const res = await fetch(url, { headers, next: { revalidate: 3600 } });
+  if (res.status === 401 && TOKEN) {
+    return fetch(url, {
+      headers: { "Content-Type": "application/json" },
+      next: { revalidate: 3600 },
+    });
+  }
+  return res;
+}
+
 export interface GitHubProfile {
   login: string;
   name: string | null;
@@ -31,10 +44,7 @@ export interface Repo {
 
 export async function getProfile(): Promise<GitHubProfile | null> {
   try {
-    const res = await fetch(`https://api.github.com/users/${USERNAME}`, {
-      headers,
-      next: { revalidate: 3600 },
-    });
+    const res = await fetchRest(`https://api.github.com/users/${USERNAME}`);
     if (!res.ok) return null;
     return res.json();
   } catch {
@@ -79,9 +89,8 @@ export async function getPinnedRepos(): Promise<Repo[]> {
 
   // Fallback: top repos by stars
   try {
-    const res = await fetch(
-      `https://api.github.com/users/${USERNAME}/repos?sort=stars&per_page=6&type=public`,
-      { headers, next: { revalidate: 3600 } }
+    const res = await fetchRest(
+      `https://api.github.com/users/${USERNAME}/repos?sort=stars&per_page=6&type=public`
     );
     if (!res.ok) return [];
     const repos = await res.json();

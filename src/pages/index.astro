@@ -1,0 +1,93 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import ThemeToggle from "@/components/ThemeToggle.astro";
+import { getProfile, getPinnedRepos } from "@/lib/github";
+import { SITE, LINKS, SKILLS } from "@/portfolio/data";
+
+const [profile, repos] = await Promise.all([getProfile(), getPinnedRepos()]);
+
+const displayName = profile?.name ?? profile?.login ?? SITE.fallbackName;
+const username = profile?.login ?? SITE.fallbackUsername;
+const github = profile?.html_url ?? `https://github.com/${username}`;
+
+const link = "text-neutral-500 transition-colors hover:text-black dark:hover:text-white";
+---
+
+<Layout>
+  <div class="relative mx-auto flex max-w-4xl flex-col md:min-h-screen md:flex-row">
+    <ThemeToggle class="absolute top-8 right-4 md:top-14" />
+
+    <!-- Left -->
+    <aside class="flex flex-col justify-between px-6 py-10 md:sticky md:top-0 md:h-screen md:w-56 md:shrink-0 md:py-16">
+      <div>
+        <h1 class="text-base font-semibold tracking-tight">{displayName}</h1>
+        <p class="mt-1 text-sm text-neutral-500">Software engineer</p>
+
+        <nav class="mt-10">
+          <ul class="space-y-2 text-sm">
+            <li><a href={github} target="_blank" rel="noopener noreferrer" class={link}>GitHub</a></li>
+            <li><a href={LINKS.linkedin} target="_blank" rel="noopener noreferrer" class={link}>LinkedIn</a></li>
+            <li><a href={`mailto:${SITE.email}`} class={link}>Email</a></li>
+            <li><a href={SITE.cvPath} download class={link}>CV</a></li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Right -->
+    <main class="flex-1 space-y-16 px-6 py-10 md:py-16 md:pl-12">
+      <section>
+        <h2 class="mb-4 text-xs uppercase tracking-widest text-neutral-400 dark:text-neutral-600">
+          Projects
+        </h2>
+        {repos.length > 0 ? (
+          <ul>
+            {repos.map((repo) => (
+              <li>
+                <a
+                  href={repo.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="group -mx-3 flex items-baseline justify-between gap-6 rounded px-3 py-2.5 transition-colors hover:bg-neutral-100 dark:hover:bg-neutral-900"
+                >
+                  <div class="min-w-0">
+                    <p class="text-sm font-medium">{repo.name}</p>
+                    {repo.description && (
+                      <p class="mt-0.5 truncate text-sm text-neutral-500">{repo.description}</p>
+                    )}
+                  </div>
+                  {repo.primaryLanguage && (
+                    <span class="shrink-0 text-xs text-neutral-400 dark:text-neutral-600">
+                      {repo.primaryLanguage.name}
+                    </span>
+                  )}
+                </a>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p class="text-sm text-neutral-500">
+            No projects yet.{" "}
+            <a href={`${github}?tab=repositories`} target="_blank" rel="noopener noreferrer" class={`${link} underline underline-offset-4`}>
+              See GitHub
+            </a>
+          </p>
+        )}
+      </section>
+
+      <section>
+        <h2 class="mb-4 text-xs uppercase tracking-widest text-neutral-400 dark:text-neutral-600">
+          Skills
+        </h2>
+        <dl class="space-y-4">
+          {SKILLS.map(({ category, items }) => (
+            <div class="grid gap-1 sm:grid-cols-[10rem_1fr] sm:gap-6">
+              <dt class="text-sm text-neutral-500">{category}</dt>
+              <dd class="text-sm">{items.join(", ")}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+    </main>
+  </div>
+</Layout>

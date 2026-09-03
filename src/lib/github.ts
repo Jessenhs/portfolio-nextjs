@@ -1,5 +1,6 @@
-const USERNAME = process.env.GITHUB_USERNAME!;
-const TOKEN = process.env.GITHUB_TOKEN;
+// Fetched at build time. Astro exposes .env vars via import.meta.env.
+const USERNAME = import.meta.env.GITHUB_USERNAME;
+const TOKEN = import.meta.env.GITHUB_TOKEN;
 
 const headers: HeadersInit = TOKEN
   ? { Authorization: `Bearer ${TOKEN}`, "Content-Type": "application/json" }
@@ -8,12 +9,9 @@ const headers: HeadersInit = TOKEN
 // REST call that retries unauthenticated if the token is rejected,
 // so an expired GITHUB_TOKEN still shows public data.
 async function fetchRest(url: string): Promise<Response> {
-  const res = await fetch(url, { headers, next: { revalidate: 3600 } });
+  const res = await fetch(url, { headers });
   if (res.status === 401 && TOKEN) {
-    return fetch(url, {
-      headers: { "Content-Type": "application/json" },
-      next: { revalidate: 3600 },
-    });
+    return fetch(url, { headers: { "Content-Type": "application/json" } });
   }
   return res;
 }
@@ -43,6 +41,7 @@ export interface Repo {
 }
 
 export async function getProfile(): Promise<GitHubProfile | null> {
+  if (!USERNAME) return null;
   try {
     const res = await fetchRest(`https://api.github.com/users/${USERNAME}`);
     if (!res.ok) return null;
@@ -53,6 +52,7 @@ export async function getProfile(): Promise<GitHubProfile | null> {
 }
 
 export async function getPinnedRepos(): Promise<Repo[]> {
+  if (!USERNAME) return [];
   if (TOKEN) {
     try {
       const query = `{
@@ -75,7 +75,6 @@ export async function getPinnedRepos(): Promise<Repo[]> {
         method: "POST",
         headers,
         body: JSON.stringify({ query }),
-        next: { revalidate: 3600 },
       });
       if (res.ok) {
         const json = await res.json();

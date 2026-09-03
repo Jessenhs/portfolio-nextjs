@@ -1,0 +1,3 @@
+[00:14:17.408] Server  LOG     ○ Compiling /_not-found/page ...
+[00:17:02.825] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
+[00:17:02.825] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}

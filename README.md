@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio
 
-## Getting Started
+A static personal portfolio site built with [Astro](https://astro.build) and Tailwind CSS.
+Profile and pinned projects are pulled from GitHub at build time.
 
-First, run the development server:
+## Getting started
 
 ```bash
+npm install
+cp .env.example .env
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:4321](http://localhost:4321).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Set `GITHUB_USERNAME` in `.env` (and optionally `GITHUB_TOKEN`, no scopes needed) to
+populate the profile and pinned projects. Without a token the six most-starred public
+repos are shown instead.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project structure
 
-## Learn More
+```
+src/
+  layouts/Layout.astro          # HTML shell, metadata, pre-paint theme script
+  pages/index.astro             # the portfolio page
+  components/ThemeToggle.astro  # sun/moon light-dark switch
+  portfolio/data.ts             # content, links, skills, branding
+  lib/github.ts                 # GitHub profile / repo fetching (build time)
+  styles/global.css             # Tailwind entrypoint, Proggy Clean font, theme transition
+public/
+  assets/                       # CV download
+  fonts/ProggyCleanSZ.ttf       # Proggy Clean (slashed zero) by Tristan Grimmer
+  favicon.ico
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Building
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run build
+npm run preview
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+`npm run build` outputs a fully static site to `dist/`. Because GitHub data is fetched
+during the build, rebuild (or redeploy) to refresh the project list.

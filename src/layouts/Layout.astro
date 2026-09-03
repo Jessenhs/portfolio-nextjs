@@ -1,0 +1,36 @@
+---
+import "@/styles/global.css";
+import { SITE } from "@/portfolio/data";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = SITE.title, description = SITE.description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="preload" href="/fonts/ProggyCleanSZ.ttf" as="font" type="font/ttf" crossorigin />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <!-- Applies the saved theme (or the system preference) before first paint. -->
+    <script is:inline>
+      (function () {
+        try {
+          var t = localStorage.getItem("theme");
+          var d = t ? t === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+          if (d) document.documentElement.classList.add("dark");
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body class="min-h-screen bg-white text-black dark:bg-black dark:text-white">
+    <slot />
+  </body>
+</html>

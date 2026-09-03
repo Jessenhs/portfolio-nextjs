@@ -6,8 +6,8 @@
 export const SITE = {
   title: "Jesse Nieuwenhuis — Software Engineer",
   description: "Software engineer building performant",
-  fallbackName: "Jesse Nieuwenhuis",
-  fallbackUsername:"Jesse Nieuwenhuis",
+  name: "Jesse Nieuwenhuis",
+  fallbackUsername: "Jessenhs",
   fallbackBio:
     "I build things for the web — clean interfaces, solid backends, and everything in between.",
   tagline: "a software engineer who builds applications.",

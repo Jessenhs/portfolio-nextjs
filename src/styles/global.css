@@ -33,13 +33,10 @@
   }
 }
 
-/* Smooth colour change while the theme is switching (class added briefly by ThemeToggle). */
-html.theme-transition,
-html.theme-transition *,
-html.theme-transition *::before,
-html.theme-transition *::after {
-  transition:
-    background-color 400ms cubic-bezier(0.4, 0, 0.2, 1),
-    color 400ms cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 400ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+/* Whole-page crossfade when the theme switches (see ThemeToggle.astro). */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 300ms;
+  animation-timing-function: ease-in-out;
+  mix-blend-mode: normal;
 }

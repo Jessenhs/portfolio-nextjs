@@ -6,7 +6,7 @@ import { SITE, LINKS, SKILLS } from "@/portfolio/data";
 
 const [profile, repos] = await Promise.all([getProfile(), getPinnedRepos()]);
 
-const displayName = profile?.name ?? profile?.login ?? SITE.fallbackName;
+const displayName = SITE.name;
 const username = profile?.login ?? SITE.fallbackUsername;
 const github = profile?.html_url ?? `https://github.com/${username}`;
 

@@ -40,17 +40,22 @@ const icon =
 
 <script>
   const root = document.documentElement;
-  let timer: ReturnType<typeof setTimeout> | undefined;
 
-  function setTheme(dark: boolean) {
-    root.classList.add("theme-transition");
+  function applyTheme(dark: boolean) {
     root.classList.toggle("dark", dark);
-    clearTimeout(timer);
-    timer = setTimeout(() => root.classList.remove("theme-transition"), 450);
     try {
       localStorage.setItem("theme", dark ? "dark" : "light");
     } catch {}
     updateLabels();
+  }
+
+  function setTheme(dark: boolean) {
+    const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!reduce && "startViewTransition" in document) {
+      document.startViewTransition(() => applyTheme(dark));
+    } else {
+      applyTheme(dark);
+    }
   }
 
   function updateLabels() {

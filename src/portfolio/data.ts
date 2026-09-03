@@ -13,7 +13,7 @@ export const SITE = {
   tagline: "a software engineer who builds applications.",
   about:
     "I care about clean code, good design, and shipping things that work. Currently open to new opportunities.",
-  email: "hi@example.com",
+  email: "jessenieuwenhuis@hotmail.com",
   cvPath: "/assets/Jesse_Nieuwenhuis_CV.docx",
 };
 

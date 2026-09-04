@@ -43,21 +43,42 @@
   }
 }
 
-/* Hover: a thin outline around the row, nothing else.
-   Easing and duration from apple.com. */
+/* Hover: the row lifts a pixel and casts a soft shadow, so the cursor
+   reads as gliding above it. It settles in quickly and takes its time
+   coming back down. Easing from apple.com. */
 .glass {
+  transform: translateY(0);
+  box-shadow:
+    0 0 0 1px transparent,
+    0 0 0 -4px transparent;
   transition:
-    box-shadow 320ms cubic-bezier(0.4, 0, 0.6, 1),
-    color 320ms cubic-bezier(0.4, 0, 0.6, 1);
+    transform 520ms cubic-bezier(0.4, 0, 0.6, 1),
+    box-shadow 520ms cubic-bezier(0.4, 0, 0.6, 1),
+    color 520ms cubic-bezier(0.4, 0, 0.6, 1);
 }
 .glass:hover {
-  box-shadow: 0 0 0 1px var(--hover-line);
+  transform: translateY(-1px);
+  box-shadow:
+    0 0 0 1px var(--hover-line),
+    0 6px 16px -12px var(--hover-shade);
+  transition-duration: 240ms;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
 }
 :root {
   --hover-line: rgb(0 0 0 / 0.12);
+  --hover-shade: rgb(0 0 0 / 0.14);
 }
 .dark {
   --hover-line: rgb(255 255 255 / 0.14);
+  --hover-shade: rgb(0 0 0 / 0.4);
+}
+
+/* The lift is decoration; leave the line for anyone who opts out. */
+@media (prefers-reduced-motion: reduce) {
+  .glass,
+  .glass:hover {
+    transform: none;
+  }
 }
 
 /* Whole-page crossfade when the theme switches (see ThemeToggle.astro). */

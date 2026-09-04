@@ -20,4 +20,3 @@ export const SITE = {
 export const LINKS = {
   linkedin: "https://www.linkedin.com/in/jesse-nieuwenhuis-214927360/",
 };
-
